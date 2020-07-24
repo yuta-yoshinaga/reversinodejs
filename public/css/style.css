@@ -1,0 +1,67 @@
+body{
+    height: 100%;
+}
+
+.reversi_field{
+    margin: auto;
+}
+
+.square-wrapper {
+    position: relative;
+    width: 12.5%;
+    border: 1px solid #000;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.spacer {
+    position: relative;
+    width: 90%;
+    padding-bottom: 90%;
+    margin: 5% auto;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 100%;
+    font-size: 24px;
+}
+
+.stone_white {
+    background-color: #fff;
+    transition: all 500ms 0s ease;
+}
+
+.stone_black {
+    background-color: #000;
+    transition: all 500ms 0s ease;
+}
+
+.cell_back_green {
+    background-color: #00FF00;
+    transition: all 500ms 0s ease;
+}
+
+.cell_back_magenta {
+    background-color: #FF00FF;
+    transition: all 500ms 0s ease;
+}
+
+.cell_back_red {
+    background-color: #FF8080;
+    transition: all 500ms 0s ease;
+}
+
+.cell_back_blue {
+    background-color: #0080FF;
+    transition: all 500ms 0s ease;
+}
+
+#ad_div{
+    display:none !important;
+}
