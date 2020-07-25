@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
-/**	@file			ReversiAnz.ts
+/**	@file       ReversiAnz.ts
  *	@brief			リバーシ解析クラス実装ファイル
  *	@author			Yuta Yoshinaga
- *	@date			2017.06.01
+ *	@date       2020.07.25
  *	$Version:		$
- *	$Revision:		$
+ *	$Revision:  $
  *
  * (c) 2017 Yuta Yoshinaga.
  *
@@ -43,11 +43,11 @@ module.exports = class ReversiAnz {
   public goodPoint: number; //!< 良手ポイント
 
   ////////////////////////////////////////////////////////////////////////////////
-  /**	@brief			コンストラクタ
+  /**	@brief		コンストラクタ
    *	@fn				public constructor()
-   *	@return			ありません
-   *	@author			Yuta Yoshinaga
-   *	@date			2017.06.01
+   *	@return		ありません
+   *	@author		Yuta Yoshinaga
+   *	@date			2020.07.25
    */
   ////////////////////////////////////////////////////////////////////////////////
   public constructor() {
@@ -55,11 +55,11 @@ module.exports = class ReversiAnz {
   }
 
   ////////////////////////////////////////////////////////////////////////////////
-  /**	@brief			リセット
+  /**	@brief		リセット
    *	@fn				public reset() : void
-   *	@return			ありません
-   *	@author			Yuta Yoshinaga
-   *	@date			2017.06.01
+   *	@return		ありません
+   *	@author		Yuta Yoshinaga
+   *	@date			2020.07.25
    */
   ////////////////////////////////////////////////////////////////////////////////
   public reset(): void {

@@ -1,8 +1,8 @@
-module.exports = class ReversiAnz {
-    constructor() {
+module.exports = (function () {
+    function ReversiAnz() {
         this.reset();
     }
-    reset() {
+    ReversiAnz.prototype.reset = function () {
         this.min = 0;
         this.max = 0;
         this.avg = 0.0;
@@ -23,6 +23,7 @@ module.exports = class ReversiAnz {
         this.ownEdgeSideOtherCnt = 0;
         this.badPoint = 0;
         this.goodPoint = 0;
-    }
-};
+    };
+    return ReversiAnz;
+}());
 //# sourceMappingURL=ReversiAnz.js.map

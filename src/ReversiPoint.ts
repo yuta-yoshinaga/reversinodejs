@@ -1,12 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////////
-/**	@file			ReversiPoint.ts
+/**	@file       ReversiPoint.ts
  *	@brief			リバーシポイントクラス実装ファイル
  *	@author			Yuta Yoshinaga
- *	@date			2017.06.01
+ *	@date       2020.07.25
  *	$Version:		$
- *	$Revision:		$
+ *	$Revision:  $
  *
- * (c) 2017 Yuta Yoshinaga.
+ * (c) 2020 Yuta Yoshinaga.
  *
  * - 本ソフトウェアの一部又は全てを無断で複写複製（コピー）することは、
  *   著作権侵害にあたりますので、これを禁止します。
@@ -25,11 +25,11 @@ module.exports = class ReversiPoint {
   public y: number;
 
   ////////////////////////////////////////////////////////////////////////////////
-  /**	@brief			コンストラクタ
+  /**	@brief		コンストラクタ
    *	@fn				public constructor()
-   *	@return			ありません
-   *	@author			Yuta Yoshinaga
-   *	@date			2017.06.01
+   *	@return		ありません
+   *	@author		Yuta Yoshinaga
+   *	@date			2020.07.25
    */
   ////////////////////////////////////////////////////////////////////////////////
   public constructor() {

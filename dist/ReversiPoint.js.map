@@ -1,1 +1,1 @@
-{"version":3,"file":"ReversiPoint.js","sourceRoot":"","sources":["../src/ReversiPoint.ts"],"names":[],"mappings":"AAsBA,MAAM,CAAC,OAAO,GAAG,MAAM,YAAY;IAYjC;QACE,IAAI,CAAC,CAAC,GAAG,CAAC,CAAC;QACX,IAAI,CAAC,CAAC,GAAG,CAAC,CAAC;IACb,CAAC;CACF,CAAC"}
+{"version":3,"file":"ReversiPoint.js","sourceRoot":"","sources":["../src/ReversiPoint.ts"],"names":[],"mappings":"AAsBA,MAAM,CAAC,OAAO;IAYZ;QACE,IAAI,CAAC,CAAC,GAAG,CAAC,CAAC;QACX,IAAI,CAAC,CAAC,GAAG,CAAC,CAAC;IACb,CAAC;IACH,mBAAC;AAAD,CAAC,AAhBgB,GAgBhB,CAAC"}

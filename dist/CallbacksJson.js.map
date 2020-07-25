@@ -1,0 +1,1 @@
+{"version":3,"file":"CallbacksJson.js","sourceRoot":"","sources":["../src/CallbacksJson.ts"],"names":[],"mappings":"AAiBA,IAAU,iBAAiB,CAuB1B;AAvBD,WAAU,iBAAiB;IACzB,IAAM,SAAS,GAAG,OAAO,CAAC,aAAa,CAAC,CAAC;IAOzC,MAAM,CAAC,OAAO;QAWZ;YACE,IAAI,CAAC,KAAK,GAAG,IAAI,KAAK,EAAE,CAAC;QAC3B,CAAC;QACH,oBAAC;IAAD,CAAC,AAdgB,GAchB,CAAA;AACH,CAAC,EAvBS,iBAAiB,KAAjB,iBAAiB,QAuB1B"}
