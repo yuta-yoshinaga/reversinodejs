@@ -48,7 +48,7 @@ namespace ReversiWrap {
     private mMasuCnt: number; //!< 縦横マス数
     private mMasuCntMax: number; //!< 縦横マス最大数
     private mMasuHistCur: number; //!< 履歴現在位置
-    public mMasuHist: typeof ReversiHistory[]; //!< 履歴
+    private mMasuHist: typeof ReversiHistory[]; //!< 履歴
 
     ////////////////////////////////////////////////////////////////////////////////
     /**	@brief			コンストラクタ
@@ -1751,6 +1751,44 @@ namespace ReversiWrap {
         ret = 0;
       }
       return ret;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    /**	@brief			セッター
+     *	@fn         public setSession(session: any): void
+     *	@param[in]  session: any
+     *	@return			ありません
+     *	@author			Yuta Yoshinaga
+     *	@date       2020.07.25
+     */
+    ////////////////////////////////////////////////////////////////////////////////
+    public setSession(session: any): void {
+      this.mMasuSts = session.mMasuSts;
+      this.mMasuStsOld = session.mMasuStsOld;
+      this.mMasuStsEnaB = session.mMasuStsEnaB;
+      this.mMasuStsCntB = session.mMasuStsCntB;
+      this.mMasuStsPassB = session.mMasuStsPassB;
+
+      for (var i = 0; i < this.mMasuCntMax; i++) {
+        for (var j = 0; j < this.mMasuCntMax; j++) {
+          this.mMasuStsAnzB[i][j].setSession(session.mMasuStsAnzB[i][j]);
+          this.mMasuStsAnzW[i][j].setSession(session.mMasuStsAnzW[i][j]);
+        }
+      }
+
+      this.mMasuPointB = session.mMasuPointB;
+      this.mMasuPointCntB = session.mMasuPointCntB;
+      this.mMasuBetCntB = session.mMasuBetCntB;
+      this.mMasuStsEnaW = session.mMasuStsEnaW;
+      this.mMasuStsCntW = session.mMasuStsCntW;
+      this.mMasuStsPassW = session.mMasuStsPassW;
+      this.mMasuPointW = session.mMasuPointW;
+      this.mMasuPointCntW = session.mMasuPointCntW;
+      this.mMasuBetCntW = session.mMasuBetCntW;
+      this.mMasuCnt = session.mMasuCnt;
+      this.mMasuCntMax = session.mMasuCntMax;
+      this.mMasuHistCur = session.mMasuHistCur;
+      this.mMasuHist = session.mMasuHist;
     }
   };
 }

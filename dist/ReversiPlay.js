@@ -577,9 +577,7 @@ var ReversiPlayWrap;
                         }
                     }
                 }
-                ret =
-                    this.mSetting.mEndInterVal +
-                        this.mSetting.mEndDrawInterVal * (Math.max(bCnt, wCnt) + offsetCnt);
+                ret = this.mSetting.mEndInterVal;
             }
             return ret;
         };
@@ -736,6 +734,19 @@ var ReversiPlayWrap;
         };
         ReversiPlay.prototype.getmCallbacks = function () {
             return this.mCallbacks;
+        };
+        ReversiPlay.prototype.setSession = function (session) {
+            this.mReversi.setSession(session.mReversi);
+            this.mSetting = session.mSetting;
+            this.mCurColor = session.mCurColor;
+            this.mCpu = session.mCpu;
+            this.mEdge = session.mEdge;
+            this.mPassEnaB = session.mPassEnaB;
+            this.mPassEnaW = session.mPassEnaW;
+            this.mGameEndSts = session.mGameEndSts;
+            this.mPlayLock = session.mPlayLock;
+            this.mDelegate = session.mDelegate;
+            this.mCallbacks = session.mCallbacks;
         };
         return ReversiPlay;
     }());

@@ -25,18 +25,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session(sess));
 app.post("/FrontController", function (req, res) {
-    var rvPlay = req.session.rvPlay;
-    if (rvPlay == null || rvPlay == undefined) {
+    var rvPlay = new ReversiPlay();
+    if (req.session.rvPlay == null || req.session.rvPlay == undefined) {
         console.log("session init!");
-        rvPlay = new ReversiPlay();
+    }
+    else {
+        rvPlay.setSession(req.session.rvPlay);
     }
     rvPlay.setmDelegate(new ReversiPlayDelegate(new ReversiPlayInterfaceImpl()));
     rvPlay.setmCallbacks(new CallbacksJson());
     var resJson = new ResJson();
-    console.log(req.body.func);
     if (req.body.func == "setSetting") {
-        var para = req.body.para;
-        console.log(para);
+        var para = JSON.parse(req.body.para);
         var reversiSetting = new ReversiSetting();
         reversiSetting.mMode = para.Mode;
         reversiSetting.mType = para.Type;

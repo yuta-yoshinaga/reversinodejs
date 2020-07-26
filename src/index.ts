@@ -29,19 +29,18 @@ app.use(cookieParser());
 app.use(session(sess));
 
 app.post("/FrontController", (req, res) => {
-  var rvPlay = req.session.rvPlay;
-  if (rvPlay == null || rvPlay == undefined) {
+  let rvPlay : typeof ReversiPlay = new ReversiPlay();
+  if (req.session.rvPlay == null || req.session.rvPlay == undefined) {
     console.log("session init!");
-    rvPlay = new ReversiPlay();
+  }else{
+    rvPlay.setSession(req.session.rvPlay);
   }
   rvPlay.setmDelegate(new ReversiPlayDelegate(new ReversiPlayInterfaceImpl()));
   rvPlay.setmCallbacks(new CallbacksJson());
   let resJson = new ResJson();
-  console.log(req.body.func);
   if (req.body.func == "setSetting") {
-    var para = req.body.para;
-    console.log(para);
-    var reversiSetting = new ReversiSetting();
+    let para = JSON.parse(req.body.para);
+    let reversiSetting : typeof ReversiSetting = new ReversiSetting();
     reversiSetting.mMode = para.Mode;
     reversiSetting.mType = para.Type;
     reversiSetting.mPlayer = para.Player;

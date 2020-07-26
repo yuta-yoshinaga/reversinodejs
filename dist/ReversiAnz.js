@@ -24,6 +24,28 @@ module.exports = (function () {
         this.badPoint = 0;
         this.goodPoint = 0;
     };
+    ReversiAnz.prototype.setSession = function (session) {
+        this.min = session.min;
+        this.max = session.max;
+        this.avg = session.avg;
+        this.pointCnt = session.pointCnt;
+        this.edgeCnt = session.edgeCnt;
+        this.edgeSideOneCnt = session.edgeSideOneCnt;
+        this.edgeSideTwoCnt = session.edgeSideTwoCnt;
+        this.edgeSideThreeCnt = session.edgeSideThreeCnt;
+        this.edgeSideOtherCnt = session.edgeSideOtherCnt;
+        this.ownMin = session.ownMin;
+        this.ownMax = session.ownMax;
+        this.ownAvg = session.ownAvg;
+        this.ownPointCnt = session.ownPointCnt;
+        this.ownEdgeCnt = session.ownEdgeCnt;
+        this.ownEdgeSideOneCnt = session.ownEdgeSideOneCnt;
+        this.ownEdgeSideTwoCnt = session.ownEdgeSideTwoCnt;
+        this.ownEdgeSideThreeCnt = session.ownEdgeSideThreeCnt;
+        this.ownEdgeSideOtherCnt = session.ownEdgeSideOtherCnt;
+        this.badPoint = session.badPoint;
+        this.goodPoint = session.goodPoint;
+    };
     return ReversiAnz;
 }());
 //# sourceMappingURL=ReversiAnz.js.map

@@ -806,9 +806,7 @@ namespace ReversiPlayWrap {
             }
           }
         }
-        ret =
-          this.mSetting.mEndInterVal +
-          this.mSetting.mEndDrawInterVal * (Math.max(bCnt, wCnt) + offsetCnt);
+        ret = this.mSetting.mEndInterVal;
       }
       return ret;
     }
@@ -1130,6 +1128,34 @@ namespace ReversiPlayWrap {
     ////////////////////////////////////////////////////////////////////////////////
     public getmCallbacks(): typeof CallbacksJson {
       return this.mCallbacks;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    /**	@brief			セッター
+     *	@fn         public setSession(session: any): void
+     *	@param[in]  session: any
+     *	@return			ありません
+     *	@author			Yuta Yoshinaga
+     *	@date       2020.07.25
+     */
+    ////////////////////////////////////////////////////////////////////////////////
+    public setSession(session: any): void {
+      this.mReversi.setSession(session.mReversi);
+      this.mSetting = session.mSetting;
+
+      this.mCurColor = session.mCurColor;
+
+      this.mCpu = session.mCpu;
+      this.mEdge = session.mEdge;
+
+      this.mPassEnaB = session.mPassEnaB;
+      this.mPassEnaW = session.mPassEnaW;
+
+      this.mGameEndSts = session.mGameEndSts;
+      this.mPlayLock = session.mPlayLock;
+
+      this.mDelegate = session.mDelegate;
+      this.mCallbacks = session.mCallbacks;
     }
   };
 }

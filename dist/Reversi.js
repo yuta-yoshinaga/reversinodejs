@@ -1,10 +1,10 @@
 var ReversiWrap;
 (function (ReversiWrap) {
     var extend = require("extend");
-    var ReversiAnz = require("./ReversiAnz").ReversiAnzWrap;
-    var ReversiPoint = require("./ReversiPoint").ReversiPointWrap;
-    var ReversiHistory = require("./ReversiHistory").ReversiHistoryWrap;
-    var ReversiConst = require("./ReversiConst").ReversiConstWrap;
+    var ReversiAnz = require("./ReversiAnz");
+    var ReversiPoint = require("./ReversiPoint");
+    var ReversiHistory = require("./ReversiHistory");
+    var ReversiConst = require("./ReversiConst");
     module.exports = (function () {
         function Reversi(masuCnt, masuMax) {
             this.mMasuCnt = masuCnt;
@@ -1177,6 +1177,32 @@ var ReversiWrap;
                 ret = 0;
             }
             return ret;
+        };
+        Reversi.prototype.setSession = function (session) {
+            this.mMasuSts = session.mMasuSts;
+            this.mMasuStsOld = session.mMasuStsOld;
+            this.mMasuStsEnaB = session.mMasuStsEnaB;
+            this.mMasuStsCntB = session.mMasuStsCntB;
+            this.mMasuStsPassB = session.mMasuStsPassB;
+            for (var i = 0; i < this.mMasuCntMax; i++) {
+                for (var j = 0; j < this.mMasuCntMax; j++) {
+                    this.mMasuStsAnzB[i][j].setSession(session.mMasuStsAnzB[i][j]);
+                    this.mMasuStsAnzW[i][j].setSession(session.mMasuStsAnzW[i][j]);
+                }
+            }
+            this.mMasuPointB = session.mMasuPointB;
+            this.mMasuPointCntB = session.mMasuPointCntB;
+            this.mMasuBetCntB = session.mMasuBetCntB;
+            this.mMasuStsEnaW = session.mMasuStsEnaW;
+            this.mMasuStsCntW = session.mMasuStsCntW;
+            this.mMasuStsPassW = session.mMasuStsPassW;
+            this.mMasuPointW = session.mMasuPointW;
+            this.mMasuPointCntW = session.mMasuPointCntW;
+            this.mMasuBetCntW = session.mMasuBetCntW;
+            this.mMasuCnt = session.mMasuCnt;
+            this.mMasuCntMax = session.mMasuCntMax;
+            this.mMasuHistCur = session.mMasuHistCur;
+            this.mMasuHist = session.mMasuHist;
         };
         return Reversi;
     }());

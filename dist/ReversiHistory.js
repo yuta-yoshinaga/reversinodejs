@@ -1,7 +1,7 @@
-var ReversiPointWrap;
-(function (ReversiPointWrap) {
+var ReversiHistoryWrap;
+(function (ReversiHistoryWrap) {
     var ReversiPoint = require("./ReversiPoint");
-    var ReversiHistory = (function () {
+    module.exports = (function () {
         function ReversiHistory() {
             this.point = new ReversiPoint();
             this.reset();
@@ -13,6 +13,5 @@ var ReversiPointWrap;
         };
         return ReversiHistory;
     }());
-    ReversiPointWrap.ReversiHistory = ReversiHistory;
-})(ReversiPointWrap || (ReversiPointWrap = {}));
+})(ReversiHistoryWrap || (ReversiHistoryWrap = {}));
 //# sourceMappingURL=ReversiHistory.js.map

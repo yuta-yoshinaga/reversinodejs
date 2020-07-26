@@ -130,9 +130,9 @@ $(document).ready(function() {
         });
     });
     // storage.clear();
-    var lReversiSetting = storage.getItem('appSetting-go');
+    var lReversiSetting = storage.getItem('appSetting-nodejs');
     if (lReversiSetting != null) reversiSetting = JSON.parse(lReversiSetting);
-    else storage.setItem('appSetting-go', JSON.stringify(reversiSetting));
+    else storage.setItem('appSetting-nodejs', JSON.stringify(reversiSetting));
     if (reversiSetting.PlayerColor1 === undefined) reversiSetting.PlayerColor1 = '#000000';
     if (reversiSetting.PlayerColor2 === undefined) reversiSetting.PlayerColor2 = '#ffffff';
     if (reversiSetting.BackGroundColor === undefined) reversiSetting.BackGroundColor = '#00ff00';
