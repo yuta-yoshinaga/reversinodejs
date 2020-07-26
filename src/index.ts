@@ -2,7 +2,7 @@ const express = require("express");
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const ReversiPlay = require("./ReversiPlay");
 const ReversiSetting = require("./ReversiSetting");
@@ -74,4 +74,4 @@ app.post("/FrontController", (req, res) => {
   res.send(resJson);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`reversinodejs listening on port ${port}!`));
