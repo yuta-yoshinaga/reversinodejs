@@ -2,7 +2,7 @@ var express = require("express");
 var cookieParser = require('cookie-parser');
 var session = require("express-session");
 var app = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 var ReversiPlay = require("./ReversiPlay");
 var ReversiSetting = require("./ReversiSetting");
 var CallbacksJson = require("./CallbacksJson");
@@ -72,5 +72,5 @@ app.post("/FrontController", function (req, res) {
     res.header("Content-Type", "application/json; charset=utf-8");
     res.send(resJson);
 });
-app.listen(port, function () { return console.log("Example app listening on port " + port + "!"); });
+app.listen(port, function () { return console.log("reversinodejs listening on port " + port + "!"); });
 //# sourceMappingURL=index.js.map
