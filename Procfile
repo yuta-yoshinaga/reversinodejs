@@ -1,0 +1,1 @@
+web: node dst/index.js
