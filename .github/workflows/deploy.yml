@@ -4,27 +4,30 @@ on:
   pull_request:
     branches:
       - master
-      - stage
+      - develop
     types: [closed]
 
 jobs:
-  production:
-    if: github.ref == 'master' && github.event.pull_request.merged == true
+  deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: ${{github.ref}}
+          ref: ${{ github.ref }}
       - name: Unshallow
         run: git fetch --prune --unshallow --tags
       - name: Heroku Deploy
         uses: akhileshns/heroku-deploy@v3.4.6
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
       - name: Get Next Version TAG
+        if: github.ref == 'master'
         id: get-next-version-tag
         run: |
           MajorVersion=`git describe --tags $(git rev-list --tags --max-count=1) | awk '{split($0, version, "."); print version[1]}'`
@@ -33,6 +36,7 @@ jobs:
           CurrentVersion=`git describe --tags $(git rev-list --tags --max-count=1)`
           echo "::set-output name=tag::$(git diff --name-status $CurrentVersion origin/master -w --ignore-blank-lines | awk -v v1=$MajorVersion -v v2=$MinorVersion -v v3=$PatchVersion 'BEGIN{b1=0;b2=0;}{if($1=="A" || $1=="M"){if($2~/src\/index.js/){b1++}else if($2~/src\/(Reversi*|*Json*)/){b2++}}}END{if(b1!=0){v1++;v2=0;v3=0;}else if(b2!=0){v2++;v3=0;}else{v3++}printf "%s.%s.%s\n",v1,v2,v3}')"
       - name: Create Release
+        if: github.ref == 'master'
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -42,20 +46,3 @@ jobs:
           release_name: Release ${{ steps.get-next-version-tag.outputs.tag }}
           draft: false
           prerelease: false
-  develop:
-    if: github.ref == 'stage' && github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: ${{github.ref}}
-      - name: Unshallow
-        run: git fetch --prune --unshallow --tags
-      - name: Heroku Deploy
-        uses: akhileshns/heroku-deploy@v3.4.6
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY_DEV}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME_DEV}}
-          heroku_email: ${{secrets.HEROKU_EMAIL_DEV}}
-
