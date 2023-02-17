@@ -15,8 +15,8 @@ npm run start
 ```
 
 ### Deploy
-![herokubutton](https://www.herokucdn.com/deploy/button.svg)  
-[Heroku](https://reversinodejs.herokuapp.com/)
+[render live](https://reversinodejs.onrender.com/)
+[render dev](https://reversinodejs-dev.onrender.com/)
 
 ## Future Releases
 TensorFlowを使って、AIの更新がしたい。
